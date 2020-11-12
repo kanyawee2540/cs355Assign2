@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HW2</string>
+    <string name ="shake_count">ใบเซียมซีที่</string>
+    <string name="count">ใบเซียมซีที่</string>
+    <string name="see">ดูผลทำนาย</string>
+    <string name="shank_for">เขย่าเพื่อดูดวงชะตา</string>
+</resources>
