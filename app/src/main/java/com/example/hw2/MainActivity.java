@@ -93,28 +93,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }//end if
     }
 
-    @SuppressLint("WakelockTimeout")
     @Override
     protected void onResume() {
         super.onResume();
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
                 SensorManager.SENSOR_DELAY_NORMAL);
-
-        if (!wl.isHeld()) {
-            wl.acquire();
-        }
-        hdr.postDelayed(pollTask, POLL_INTERVAL);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         sensorManager.unregisterListener(this);
-
-        if (wl.isHeld()) {
-            wl.release();
-        }
-        hdr.removeCallbacks(pollTask);
     }
 
     static class SensorInfo{
