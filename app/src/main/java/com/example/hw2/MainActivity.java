@@ -17,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     SensorManager sensorManager;
@@ -79,7 +81,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             final long now = System.currentTimeMillis();
             if (now - previousTimestamp > INTERVAL_MS) {
                 shake_count++;
-                String message1 = String.format(getResources().getString(R.string.shake_count)+" %1$d", shake_count);
+                Random ran = new Random();
+                String message1 = String.format(getResources().getString(R.string.shake_count)+" "+String.valueOf(ran.nextInt(18)));
                 text1.setText(message1);
                 previousTimestamp = now;
             }
